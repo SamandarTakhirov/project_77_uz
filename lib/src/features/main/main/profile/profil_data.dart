@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_77_uz/src/features/main/main/profile/profille_page.dart';
 
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
@@ -45,12 +44,7 @@ class _ProfilePageState extends State<ProfileDataPage>
                 ),
               ),
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfilePage(),
-                  ),
-                );
+                Navigator.pop(context);
               },
             ),
             const SizedBox(height: 20),
