@@ -4,11 +4,13 @@ class CustomAppBar extends StatelessWidget {
   final String title;
   final String actionsIcon;
   final String? leading;
+  final Widget? actionButton;
 
   const CustomAppBar({
     required this.title,
     required this.actionsIcon,
     this.leading,
+    this.actionButton,
     super.key,
   });
 
@@ -32,11 +34,13 @@ class CustomAppBar extends StatelessWidget {
           width: 69,
           height: 36,
         ),
-        Image(
-          width: 24,
-          height: 24,
-          image: AssetImage(actionsIcon),
-        ),
+        actionButton == null
+            ? Image(
+                width: 24,
+                height: 24,
+                image: AssetImage(actionsIcon),
+              )
+            : actionButton!,
       ],
     );
   }

@@ -17,7 +17,7 @@ class BottomIconWidget extends StatelessWidget {
     return Image(
       width: 24,
       height: 24,
-      color: isActive! ?  const Color(0xFF8E9297) : AppColor.mainColor ,
+      color: isActive! ? const Color(0xFF8E9297) : AppColor.mainColor,
       image: AssetImage(image),
     );
   }

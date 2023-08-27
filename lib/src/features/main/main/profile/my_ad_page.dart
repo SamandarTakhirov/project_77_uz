@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
 

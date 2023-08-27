@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_77_uz/src/common/app.dart';
+import 'package:project_77_uz/src/features/main/main/login/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
@@ -16,12 +19,29 @@ class _ProfilePageState extends State<ProfileDataPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    SharedPreferences preferences =
+        context.findAncestorStateOfType<MyAppState>()!.preferences!;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const CustomAppBar(
+        title: CustomAppBar(
           title: AppIcons.logo,
           actionsIcon: "assets/icons/ic_log_out.png",
+          actionButton: IconButton(
+            onPressed: () {
+              preferences.setBool("isLogged", false);
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(preferences: preferences),
+                  ),
+                      (route) => false);
+            },
+            icon: const Image(
+              image: AssetImage("assets/icons/ic_log_out.png"),
+              width: 24,
+              height: 24,
+            ),
+          ),
         ),
       ),
       body: Padding(

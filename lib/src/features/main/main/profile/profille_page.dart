@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../common/app.dart';
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
-import '../sell_page/sell_page.dart';
+import '../login/login_page.dart';
 import 'my_ad_page.dart';
 import 'profil_data.dart';
 import 'widget/custom_listtile.dart';
@@ -20,13 +22,30 @@ class _ProfilePageState extends State<ProfilePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    SharedPreferences preferences =
+    context.findAncestorStateOfType<MyAppState>()!.preferences!;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        title: const CustomAppBar(
+        title: CustomAppBar(
           title: AppIcons.logo,
           actionsIcon: "assets/icons/ic_log_out.png",
+          actionButton: IconButton(
+            onPressed: () {
+              preferences.setBool("isLogged", false);
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(preferences: preferences),
+                  ),
+                      (route) => false);
+            },
+            icon: const Image(
+              image: AssetImage("assets/icons/ic_log_out.png"),
+              height: 24,
+              width: 24,
+            ),
+          ),
         ),
       ),
       body: Padding(
@@ -102,14 +121,14 @@ class _ProfilePageState extends State<ProfilePage>
 }
 
 class MainProfilePageDec {
-  static List<Widget> routes = [
-    const ProfileDataPage(),
-    const MyAddPage(),
-    const SellPage(),
-    const ProfileDataPage(),
-    const ProfileDataPage(),
-    const ProfileDataPage(),
-    const ProfileDataPage(),
+  static  List<Widget> routes = [
+    ProfileDataPage(),
+    MyAddPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
   ];
   static const List<String> icons = [
     "assets/icons/ic_personal_information.png",
