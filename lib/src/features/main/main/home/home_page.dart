@@ -81,17 +81,19 @@ class _HomePageState extends State<HomePage>
                 collapseMode: CollapseMode.pin,
               ),
             ),
-            // SliverPersistentHeader(
-            //   delegate: MySliverHeaderDelegate(),
-            //   pinned: false,
-            // ),
           ];
         },
-        body: const Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
-            child: GridProduct(),
-          ),
+        body: NestedScrollView(
+          // controller: scrollController,
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [
+              const SliverPadding(
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                sliver: GridProduct(),
+              ),
+            ];
+          },
+          body: Text("sad"),
         ),
       ),
     );
@@ -100,4 +102,3 @@ class _HomePageState extends State<HomePage>
   @override
   bool get wantKeepAlive => true;
 }
-

@@ -1,10 +1,18 @@
 
+
 import 'package:flutter/material.dart';
 
 import '../../common/constants/app_color.dart';
 import '../../common/constants/app_icons.dart';
 
-class MySliverHeaderDelegate extends SliverPersistentHeaderDelegate {
+class MySliverHeaderDelegate extends StatefulWidget {
+  const MySliverHeaderDelegate({Key? key}) : super(key: key);
+
+  @override
+  State<MySliverHeaderDelegate> createState() => _MySliverHeaderDelegateState();
+}
+
+class _MySliverHeaderDelegateState extends State<MySliverHeaderDelegate> {
   List<String> icons = [
     AppIcons.forWomen,
     AppIcons.beauty,
@@ -53,9 +61,8 @@ class MySliverHeaderDelegate extends SliverPersistentHeaderDelegate {
     "Сумки и чемоданы",
     ""
   ];
-
   @override
-  Widget build(Object context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,16 +144,5 @@ class MySliverHeaderDelegate extends SliverPersistentHeaderDelegate {
         ),
       ],
     );
-  }
-
-  @override
-  double get maxExtent => 98;
-
-  @override
-  double get minExtent => 98;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
   }
 }

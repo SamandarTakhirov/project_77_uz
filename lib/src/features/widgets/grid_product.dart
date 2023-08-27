@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_77_uz/src/features/widgets/my_sliverheader_delegate.dart';
 
 import 'product_card.dart';
 
@@ -19,19 +18,16 @@ class _GridProductState extends State<GridProduct> {
       mainAxisSpacing: 6,
       childAspectRatio: 1 / 1.6,
       children: List.generate(
-        31,
+        30,
         (index) {
-          if (index != 30) {
-            return ProductCard(
+            return const ProductCard(
               image: "assets/icons/Image.png",
               time: "Вчера, 19:20",
               about: "Оригинальные кроссовки Nike Air Max 97",
               city: "г. Ташкент",
               price: "4 820 000",
             );
-          } else {
-            return Text("");
-          }
+
         },
       ),
     );
