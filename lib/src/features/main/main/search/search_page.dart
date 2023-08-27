@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_77_uz/src/common/constants/app_color.dart';
 import 'package:project_77_uz/src/features/main/main/search/widgets_for_search/good_categories.dart';
+import 'package:project_77_uz/src/features/main/main/search/widgets_for_search/search_result.dart';
 import 'package:project_77_uz/src/features/widgets/grid_product.dart';
 
 import '../../../../common/constants/app_icons.dart';
@@ -109,7 +110,9 @@ class _SearchPageState extends State<SearchPage>
                                                   BorderRadius.circular(5),
                                             ),
                                           ),
-                                          child: const Text("Поиск"),
+                                          child: const Text(
+                                            "Поиск",
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -121,7 +124,14 @@ class _SearchPageState extends State<SearchPage>
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: screen.height * 0.03),
-                            child: const Text("Популярные поиски"),
+                            child: const Text(
+                              "Популярные поиски",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey,
+                              ),
+                            ),
                           ),
                           for (int i = 0; i < categories.length; i++)
                             Column(
@@ -155,6 +165,7 @@ class _SearchPageState extends State<SearchPage>
             ),
             backgroundColor: AppColor.white,
             body: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.all(screen.height * 0.025),
@@ -207,6 +218,20 @@ class _SearchPageState extends State<SearchPage>
                     ),
                   ),
                 ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: screen.height * 0.03),
+                  child: const Text(
+                    "Рекомендации",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ),
+                for (int i = 0; i < 2; i++)
+                  SearchResult(categoryName: categories[i]),
               ],
             ),
           );
