@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_77_uz/src/features/widgets/product_list_tile.dart';
 
 import '../../../../../common/constants/app_color.dart';
 import '../../../../../common/constants/app_icons.dart';
@@ -6,6 +7,7 @@ import '../../../../widgets/custom_appbar.dart';
 import '../../../../widgets/my_sliverheader_delegate.dart';
 import '../../../../widgets/product_card.dart';
 import '../../controller_page.dart';
+import 'product_info/product_info.dart';
 
 class OpenMenuForCategories extends StatefulWidget {
   final String item;
@@ -40,6 +42,13 @@ class _OpenState extends State<OpenMenuForCategories> {
         context,
         MaterialPageRoute(
           builder: (context) => const CustomPageController(),
+        ),
+      );
+
+  void openProductInfo() => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ProductInfo(),
         ),
       );
 
@@ -173,20 +182,30 @@ class _OpenState extends State<OpenMenuForCategories> {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             sliver: SliverGrid.count(
-              crossAxisCount: 2,
+              crossAxisCount: changeView ? 1 : 2,
               crossAxisSpacing: 6,
               mainAxisSpacing: 6,
-              childAspectRatio: 1 / 1.6,
+              childAspectRatio: changeView ? 1 / 0.4 : 1 / 1.6,
               children: List.generate(
                 8,
                 (index) {
-                  return const ProductCard(
-                    image: "assets/icons/Image.png",
-                    time: "Вчера, 19:20",
-                    about: "Оригинальные кроссовки Nike Air Max 97",
-                    city: "г. Ташкент",
-                    price: "4 820 000",
-                  );
+                  return !changeView
+                      ? ProductCard(
+                          onTap: openProductInfo,
+                          image: "assets/icons/Image.png",
+                          time: "Вчера, 19:20",
+                          about: "Оригинальные кроссовки Nike Air Max 97",
+                          city: "г. Ташкент",
+                          price: "4 820 000",
+                        )
+                      : ProductListTile(
+                          onTap: openProductInfo,
+                          image: "assets/icons/Image.png",
+                          time: "Вчера, 19:20",
+                          about: "Оригинальные кроссовки Nike Air Max 97",
+                          city: "г. Ташкент",
+                          price: "4 820 000",
+                        );
                 },
               ),
             ),
@@ -200,14 +219,24 @@ class _OpenState extends State<OpenMenuForCategories> {
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             sliver: SliverGrid.count(
-              crossAxisCount: 2,
+              crossAxisCount: changeView ? 1 : 2,
               crossAxisSpacing: 6,
               mainAxisSpacing: 6,
-              childAspectRatio: 1 / 1.6,
+              childAspectRatio: changeView ? 1 / 0.4 : 1 / 1.6,
               children: List.generate(
                 8,
                     (index) {
-                  return const ProductCard(
+                  return !changeView
+                      ? ProductCard(
+                    onTap: openProductInfo,
+                    image: "assets/icons/Image.png",
+                    time: "Вчера, 19:20",
+                    about: "Оригинальные кроссовки Nike Air Max 97",
+                    city: "г. Ташкент",
+                    price: "4 820 000",
+                  )
+                      : ProductListTile(
+                    onTap: openProductInfo,
                     image: "assets/icons/Image.png",
                     time: "Вчера, 19:20",
                     about: "Оригинальные кроссовки Nike Air Max 97",
