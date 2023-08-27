@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main/main/categories/widgets/product_info/product_info.dart';
 import 'product_card.dart';
 
 class GridProduct extends StatefulWidget {
@@ -10,6 +11,13 @@ class GridProduct extends StatefulWidget {
 }
 
 class _GridProductState extends State<GridProduct> {
+  void openProductInfo() => Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const ProductInfo(),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -20,7 +28,8 @@ class _GridProductState extends State<GridProduct> {
       children: List.generate(
         30,
         (index) {
-            return const ProductCard(
+            return  ProductCard(
+              onTap: openProductInfo,
               image: "assets/icons/Image.png",
               time: "Вчера, 19:20",
               about: "Оригинальные кроссовки Nike Air Max 97",

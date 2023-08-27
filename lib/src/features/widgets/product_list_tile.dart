@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../common/constants/app_color.dart';
 
-class ProductCard extends StatefulWidget {
+class ProductListTile extends StatefulWidget {
   final void Function() onTap;
   final String image;
   final String city;
@@ -10,7 +10,7 @@ class ProductCard extends StatefulWidget {
   final String time;
   final String price;
 
-  const ProductCard({
+  const ProductListTile({
     required this.onTap,
     required this.image,
     required this.city,
@@ -21,10 +21,10 @@ class ProductCard extends StatefulWidget {
   });
 
   @override
-  State<ProductCard> createState() => _ProductCardState();
+  State<ProductListTile> createState() => _ProductListTileState();
 }
 
-class _ProductCardState extends State<ProductCard> {
+class _ProductListTileState extends State<ProductListTile> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
@@ -32,7 +32,7 @@ class _ProductCardState extends State<ProductCard> {
       onTap: widget.onTap,
       child: SizedBox(
         width: size.width * 0.45,
-        height: size.width * 0.45 * 2,
+        height: size.width * 0.45 / 2,
         child: DecoratedBox(
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
@@ -40,13 +40,13 @@ class _ProductCardState extends State<ProductCard> {
             ),
             color: AppColor.white,
           ),
-          child: Column(
+          child: Row(
             children: [
               Expanded(
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(12),
                     topLeft: Radius.circular(12),
+                    bottomLeft: Radius.circular(12),
                   ),
                   child: Image.asset(
                     "assets/icons/Image.png",
@@ -59,8 +59,9 @@ class _ProductCardState extends State<ProductCard> {
               Expanded(
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       DecoratedBox(

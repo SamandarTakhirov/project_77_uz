@@ -5,6 +5,7 @@ import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
 import '../../../widgets/product_card.dart';
+import '../categories/widgets/product_info/product_info.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,6 +30,12 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
+  void openProductInfo() => Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const ProductInfo(),
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -91,7 +98,8 @@ class _HomePageState extends State<HomePage>
               children: List.generate(
                 8,
                     (index) {
-                  return const ProductCard(
+                  return  ProductCard(
+                    onTap: openProductInfo,
                     image: "assets/icons/Image.png",
                     time: "Вчера, 19:20",
                     about: "Оригинальные кроссовки Nike Air Max 97",
@@ -118,7 +126,8 @@ class _HomePageState extends State<HomePage>
               children: List.generate(
                 8,
                     (index) {
-                  return const ProductCard(
+                  return  ProductCard(
+                    onTap: openProductInfo,
                     image: "assets/icons/Image.png",
                     time: "Вчера, 19:20",
                     about: "Оригинальные кроссовки Nike Air Max 97",
