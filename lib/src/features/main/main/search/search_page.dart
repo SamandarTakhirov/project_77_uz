@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_77_uz/src/common/constants/app_color.dart';
+import 'package:project_77_uz/src/features/main/main/search/search_time_page.dart';
 import 'package:project_77_uz/src/features/main/main/search/widgets_for_search/good_categories.dart';
 import 'package:project_77_uz/src/features/widgets/grid_product.dart';
 
@@ -42,58 +43,69 @@ class _SearchPageState extends State<SearchPage>
                   children: [
                     Padding(
                       padding: EdgeInsets.all(screen.height * 0.025),
-                      child: Container(
-                        height: screen.height * 0.08,
-                        width: screen.width * 0.95,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[100],
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Image.asset(
-                                    AppIcons.searchIcon,
-                                    width: 24,
-                                    height: 24,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Text(
-                                    "Что вы ищите?",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const SearchTimePage(),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black,
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
+                          );
+                        },
+                        child: Container(
+                          height: screen.height * 0.08,
+                          width: screen.width * 0.95,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0),
+                                    child: Image.asset(
+                                      AppIcons.searchIcon,
+                                      width: 24,
+                                      height: 24,
+                                      color: Colors.grey,
                                     ),
                                   ),
-                                  child: const Text("Поиск"),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Text(
+                                      "Что вы ищите?",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: ElevatedButton(
+                                    onPressed: () {},
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.black,
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                    ),
+                                    child: const Text("Поиск"),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
