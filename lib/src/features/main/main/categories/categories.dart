@@ -11,7 +11,7 @@ class Categories extends StatefulWidget {
   State<Categories> createState() => _CategoriesState();
 }
 
-class _CategoriesState extends State<Categories> {
+class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMixin{
   List<String> icons = [
     AppIcons.forWomen,
     AppIcons.beauty,
@@ -162,4 +162,7 @@ class _CategoriesState extends State<Categories> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

@@ -12,10 +12,11 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const CustomAppBar(
@@ -28,7 +29,6 @@ class _HomePageState extends State<HomePage> {
       body: const SafeArea(
         child: Column(
           children: [
-
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
               child: Column(
@@ -63,4 +63,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
