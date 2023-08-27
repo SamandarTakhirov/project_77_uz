@@ -16,12 +16,13 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage>
     with AutomaticKeepAliveClientMixin {
-  bool isSearch = true;
+  late bool isSearch;
   final controllerText = TextEditingController();
 
   @override
   void initState() {
     super.initState();
+    isSearch = false;
     controllerText.addListener(() {});
   }
 
@@ -39,7 +40,7 @@ class _SearchPageState extends State<SearchPage>
               ),
               backgroundColor: Colors.white,
             ),
-            backgroundColor: AppColor.white,
+            backgroundColor: AppColor.bkgColor,
             body: NestedScrollView(
               headerSliverBuilder:
                   (BuildContext context, bool innerBoxIsScrolled) {
@@ -155,6 +156,8 @@ class _SearchPageState extends State<SearchPage>
             ),
           )
         : Scaffold(
+
+      resizeToAvoidBottomInset: false,
             appBar: AppBar(
               automaticallyImplyLeading: false,
               backgroundColor: Colors.white,

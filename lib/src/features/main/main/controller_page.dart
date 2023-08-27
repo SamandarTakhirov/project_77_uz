@@ -42,6 +42,8 @@ class _CustomPageControllerState extends State<CustomPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      resizeToAvoidBottomInset: false,
       backgroundColor: pageNumber == 0 ? AppColor.bkgColor : AppColor.white,
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
