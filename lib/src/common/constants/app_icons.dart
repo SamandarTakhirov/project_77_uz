@@ -37,4 +37,8 @@ abstract class AppIcons {
   static const addImage = "assets/icons/ic_add_image.png";
   static const logo = "assets/icons/ic_logo.png";
   static const star = "assets/icons/ic_star.png";
+  static const phone = "assets/icons/ic_phone_call.png";
+  static const location = "assets/icons/ic_location.png";
+  static const email = "assets/icons/ic_email.png";
+
 }

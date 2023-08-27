@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
+import 'my_ad_page.dart';
 import 'profil_data.dart';
 import 'widget/custom_listtile.dart';
 
@@ -16,36 +17,6 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage>
     with AutomaticKeepAliveClientMixin {
-  List<String> title = [
-    "Персональные данные",
-    "Мои объявления",
-    "Настройки",
-    "Уведомления",
-    "Язык",
-    "Правила пользования",
-    "О нас"
-  ];
-
-  List<Widget> routes = [
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-  ];
-
-  List<String> icons = [
-    "assets/icons/ic_personal_information.png",
-    "assets/icons/ic_category_four.png",
-    "assets/icons/ic_settings.png",
-    "assets/icons/ic_about.png",
-    "assets/icons/ic_about.png",
-    "assets/icons/ic_about.png",
-    "assets/icons/ic_about.png",
-  ];
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -112,12 +83,11 @@ class _ProfilePageState extends State<ProfilePage>
             Column(
               children: List.generate(
                 7,
-                    (index) =>
-                    CustomListTile(
-                      about: title[index],
-                      icon: icons[index],
-                      route:routes[index],
-                    ),
+                (index) => CustomListTile(
+                  about: MainProfilePageDec.title[index],
+                  icon: MainProfilePageDec.icons[index],
+                  route: MainProfilePageDec.routes[index],
+                ),
               ),
             ),
           ],
@@ -128,4 +98,35 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class MainProfilePageDec {
+  static const List<Widget> routes = [
+    ProfileDataPage(),
+    MyAddPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+    ProfileDataPage(),
+  ];
+  static const List<String> icons = [
+    "assets/icons/ic_personal_information.png",
+    "assets/icons/ic_category_four.png",
+    "assets/icons/ic_settings.png",
+    "assets/icons/ic_about.png",
+    "assets/icons/ic_about.png",
+    "assets/icons/ic_about.png",
+    "assets/icons/ic_about.png",
+  ];
+
+  static const List<String> title = [
+    "Персональные данные",
+    "Мои объявления",
+    "Настройки",
+    "Уведомления",
+    "Язык",
+    "Правила пользования",
+    "О нас"
+  ];
 }

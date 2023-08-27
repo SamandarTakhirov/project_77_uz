@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfileDataPage>
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
-              height: 111,
+              height: 345,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -59,12 +59,12 @@ class _ProfilePageState extends State<ProfileDataPage>
                     width: 2,
                   ),
                 ),
-                child: const Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SizedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: SizedBox(
                         width: 54,
                         height: 54,
                         child: DecoratedBox(
@@ -83,15 +83,52 @@ class _ProfilePageState extends State<ProfileDataPage>
                           ),
                         ),
                       ),
-                      Text(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
                         "Шохрух Шавкиев",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 16,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    for (int i = 0; i < 3; i++)
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          width: 290,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFEAEDF0),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(8),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  ProfileDec.profileList[i],
+                                  width: 24,
+                                  height: 24,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SizedBox(
+                                    width: 220,
+                                    child: Text(
+                                      ProfileDec.info[i],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
               ),
             ),
@@ -103,4 +140,17 @@ class _ProfilePageState extends State<ProfileDataPage>
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class ProfileDec {
+  static const List<String> profileList = [
+    AppIcons.phone,
+    AppIcons.email,
+    AppIcons.location
+  ];
+  static const List<String> info = [
+    "+998 88 033 18 15",
+    "sh.shavqiyev@77.uz",
+    "8897+PMP, Almachi Street, Тоshkent, Узбекистан",
+  ];
 }
