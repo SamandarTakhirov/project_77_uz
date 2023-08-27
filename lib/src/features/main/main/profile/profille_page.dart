@@ -13,17 +13,38 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClientMixin{
+class _ProfilePageState extends State<ProfilePage>
+    with AutomaticKeepAliveClientMixin {
+  List<String> title = [
+    "Персональные данные",
+    "Мои объявления",
+    "Настройки",
+    "Уведомления",
+    "Язык",
+    "Правила пользования",
+    "О нас"
+  ];
+
+  List<String> icons = [
+    "assets/icons/ic_personal_information.png",
+    "assets/icons/ic_category_four.png",
+    "assets/icons/ic_settings.png",
+    "assets/icons/ic_about.png",
+    "assets/icons/ic_about.png",
+    "assets/icons/ic_about.png",
+    "assets/icons/ic_about.png",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      backgroundColor: Colors.white,
-      title: const CustomAppBar(
-        title: AppIcons.logo,
-        actionsIcon: AppIcons.bell,
+        backgroundColor: Colors.white,
+        title: const CustomAppBar(
+          title: AppIcons.logo,
+          actionsIcon: "assets/icons/ic_log_out.png",
+        ),
       ),
-    ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
@@ -94,23 +115,3 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
   @override
   bool get wantKeepAlive => true;
 }
-
-List<String> title = [
-  "Персональные данные",
-  "Мои объявления",
-  "Настройки",
-  "Уведомления",
-  "Язык",
-  "Правила пользования",
-  "О нас"
-];
-
-List<String> icons = [
-  "assets/icons/ic_personal_information.png",
-  "assets/icons/ic_category_four.png",
-  "assets/icons/ic_settings.png",
-  "assets/icons/ic_about.png",
-  "assets/icons/ic_about.png",
-  "assets/icons/ic_about.png",
-  "assets/icons/ic_about.png",
-];
