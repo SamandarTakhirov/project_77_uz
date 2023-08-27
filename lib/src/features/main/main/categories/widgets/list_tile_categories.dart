@@ -19,7 +19,7 @@ class ListTileCategories extends StatelessWidget {
       title: Text(
         text,
       ),
-      trailing: Icon(
+      trailing: const Icon(
         Icons.navigate_next,
         size: 20,
         color: AppColor.textGrey,

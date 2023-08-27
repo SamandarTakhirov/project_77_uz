@@ -8,4 +8,5 @@ abstract class AppColor{
   static const bottomText = Color(0xFF676A7D);
   static const white = Color(0xFFFFFFFF);
   static const cityColor = Color(0xFF63676C);
+  static const dividerColor = Color(0xFFEAEDF0);
 }

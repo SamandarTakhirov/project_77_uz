@@ -62,8 +62,8 @@ class _ProfilePageState extends State<ProfileDataPage>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 15.0),
                       child: SizedBox(
                         width: 54,
                         height: 54,
@@ -84,8 +84,8 @@ class _ProfilePageState extends State<ProfileDataPage>
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
+                    const Padding(
+                      padding: EdgeInsets.all(15.0),
                       child: Text(
                         "Шохрух Шавкиев",
                         style: TextStyle(
@@ -99,7 +99,7 @@ class _ProfilePageState extends State<ProfileDataPage>
                         padding: const EdgeInsets.all(10.0),
                         child: Container(
                           width: 290,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xFFEAEDF0),
                             borderRadius: BorderRadius.all(
                               Radius.circular(8),
@@ -120,7 +120,7 @@ class _ProfilePageState extends State<ProfileDataPage>
                                     width: 220,
                                     child: Text(
                                       ProfileDec.info[i],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600,
                                       ),

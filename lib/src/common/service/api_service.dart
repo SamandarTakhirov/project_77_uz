@@ -15,11 +15,12 @@ class ApiService {
   Future<String> request(
     String requestPath, {
     Method method = Method.get,
-    Map<String, List<String>> queryParametersAll = const {},
+    Map<String, List<String?>> queryParametersAll = const {},
     Map<String, String> headers = const {"Content-Type": "application/json"},
     Map<String, Object?> body = const {},
   }) async {
-    final uri = Uri.parse(requestPath);
+    final String query = _queryToString(queryParametersAll);
+    final uri = Uri.parse("$requestPath$query");
 
     try {
       Response response = await switch (method) {
@@ -63,6 +64,22 @@ class ApiService {
     } catch (e, stackTrace) {
       debugPrint("$e\n$stackTrace");
       rethrow;
+    }
+  }
+
+  String _queryToString(Map<String, List<String?>> queryParametersAll) {
+    if (queryParametersAll.isEmpty) {
+      return "";
+    } else {
+      return "?${queryParametersAll.entries.map((entry) {
+        return entry.value.map((value) {
+          if(value != null) {
+            return "${entry.key} = $value";
+          } else {
+            return "";
+          }
+        }).join("&");
+      }).join("&")}";
     }
   }
 }

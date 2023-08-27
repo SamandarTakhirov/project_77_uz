@@ -132,7 +132,7 @@ class _CategoriesState extends State<Categories>
                             Radius.circular(15),
                           ),
                         ),
-                        contentPadding: EdgeInsets.only(left: 50, right: 10),
+                        contentPadding: const EdgeInsets.only(left: 50, right: 10),
                         tileColor: Colors.white,
                         title: Text(
                           names[index],

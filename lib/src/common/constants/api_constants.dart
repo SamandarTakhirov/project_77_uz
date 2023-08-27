@@ -4,5 +4,8 @@ abstract final class ApiConst {
   //   defaultValue: "...",
   // );
 
-  static getUserByUsername(String username) => "api/v3/user/$username";
+  static const _baseUrl = "http://localhost/api/v1";
+
+  static const adsPath = "$_baseUrl/store/ads";
+  // static getUserByUsername(String username) => "api/v1/user/$username";
 }

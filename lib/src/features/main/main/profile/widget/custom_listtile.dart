@@ -27,24 +27,24 @@ class CustomListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: DecoratedBox(
           decoration: BoxDecoration(
-            border: Border.all(color: Color(0xFFEAEDF0), strokeAlign: 2),
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            border: Border.all(color: const Color(0xFFEAEDF0), strokeAlign: 2),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
           child: ListTile(
             title: Text(
               about,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w600,
               ),
             ),
-            trailing: widget != null ? widget! : SizedBox(),
+            trailing: widget != null ? widget! : const SizedBox(),
             leading: icon != null
                 ? Image(
                     image: AssetImage(icon!),
                     width: 24,
                     height: 24,
                   )
-                : SizedBox(),
+                : const SizedBox(),
           ),
         ),
       ),

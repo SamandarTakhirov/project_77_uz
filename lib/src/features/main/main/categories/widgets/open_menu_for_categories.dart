@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/constants/app_color.dart';
@@ -74,7 +73,7 @@ class _OpenState extends State<OpenMenuForCategories> {
                         Row(
                           children: [
                             IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back,
                                 size: 32,
                                 weight: 3,
@@ -192,7 +191,7 @@ class _OpenState extends State<OpenMenuForCategories> {
               ),
             ),
           ),
-          SliverPadding(
+          const SliverPadding(
             padding: EdgeInsets.only(bottom: 10),
             sliver: SliverToBoxAdapter(
               child: MySliverHeaderDelegate(),
