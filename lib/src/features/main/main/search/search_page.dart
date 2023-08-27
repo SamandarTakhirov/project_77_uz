@@ -42,15 +42,64 @@ class _SearchPageState extends State<SearchPage>
                   children: [
                     Padding(
                       padding: EdgeInsets.all(screen.height * 0.025),
-                      child: SizedBox(
+                      child: Container(
                         height: screen.height * 0.08,
-                        width: double.infinity,
-                        child: Text(""),
+                        width: screen.width * 0.95,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Image.asset(
+                                    AppIcons.searchIcon,
+                                    width: 24,
+                                    height: 24,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text(
+                                    "Что вы ищите?",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.black,
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                  child: const Text("Поиск"),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: screen.height * 0.03),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screen.height * 0.03),
                       child: const Text("Популярные поиски"),
                     ),
                     for (int i = 0; i < categories.length; i++)
