@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_77_uz/src/common/constants/app_color.dart';
 import 'package:project_77_uz/src/features/main/main/search/widgets_for_search/good_categories.dart';
 
 import '../../../../common/constants/app_icons.dart';
@@ -14,6 +15,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -24,7 +26,7 @@ class _SearchPageState extends State<SearchPage> with AutomaticKeepAliveClientMi
         ),
         backgroundColor: Colors.white,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: ListView(
         children: [
           Padding(

@@ -42,7 +42,7 @@ class _CustomPageControllerState extends State<CustomPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.bkgColor,
+      backgroundColor: pageNumber == 0 ? AppColor.bkgColor : AppColor.white,
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: controller,
@@ -55,7 +55,10 @@ class _CustomPageControllerState extends State<CustomPageController> {
         ],
       ),
       bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0), ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16.0),
+          topRight: Radius.circular(16.0),
+        ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           onTap: pageChange,
@@ -74,15 +77,17 @@ class _CustomPageControllerState extends State<CustomPageController> {
             fontWeight: FontWeight.w600,
             fontSize: 12,
           ),
-          elevation: 0,
-          items:  const [
+          elevation: 10,
+
+          items: const [
             BottomNavigationBarItem(
               icon: BottomIconWidget(image: AppIcons.home, isActive: true),
               label: "Главная",
               activeIcon: BottomIconWidget(image: AppIcons.home),
             ),
             BottomNavigationBarItem(
-              icon: BottomIconWidget(image: AppIcons.searchIcon, isActive: true),
+              icon:
+                  BottomIconWidget(image: AppIcons.searchIcon, isActive: true),
               label: "Поиск",
               activeIcon: BottomIconWidget(image: AppIcons.searchIcon),
             ),

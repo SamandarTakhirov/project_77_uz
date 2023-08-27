@@ -14,8 +14,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with AutomaticKeepAliveClientMixin {
+  late final ScrollController scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -26,39 +41,57 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       backgroundColor: AppColor.bkgColor,
-      body: const SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Популярное продукты",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 24,
-                      color: AppColor.black,
+      body: NestedScrollView(
+        controller: scrollController,
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              expandedHeight: 80,
+              backgroundColor: AppColor.bkgColor,
+              toolbarHeight: 0,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Популярное продукты",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 24,
+                              color: AppColor.black,
+                            ),
+                          ),
+                          Text(
+                            "Вы можете найти все категории, которые вам нужны от покупателя",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: AppColor.textGrey,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Вы можете найти все категории, которые вам нужны от покупателя",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: AppColor.textGrey,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
+                collapseMode: CollapseMode.pin,
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.0),
-                child: GridProduct(),
-              ),
-            ),
-          ],
+            // SliverPersistentHeader(
+            //   delegate: MySliverHeaderDelegate(),
+            //   pinned: false,
+            // ),
+          ];
+        },
+        body: Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.0,vertical: 5),
+            child: GridProduct(),
+          ),
         ),
       ),
     );
@@ -66,4 +99,27 @@ class _HomePageState extends State<HomePage>
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class MySliverHeaderDelegate extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(Object context, double shrinkOffset, bool overlapsContent) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15.0),
+        child: GridProduct(),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 48;
+
+  @override
+  double get minExtent => 48;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
+  }
 }

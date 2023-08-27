@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomAppBar extends StatelessWidget {
   final String title;
   final String actionsIcon;
@@ -18,7 +17,16 @@ class CustomAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        leading != null ? Image(image: AssetImage(leading!),width: 32,height: 32,) : const SizedBox(),
+        leading != null
+            ? Image(
+                image: AssetImage(leading!),
+                width: 32,
+                height: 32,
+              )
+            : const SizedBox(
+                width: 32,
+                height: 32,
+              ),
         Image(
           image: AssetImage(title),
           width: 69,

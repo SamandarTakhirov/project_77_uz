@@ -25,31 +25,37 @@ class ProductCard extends StatefulWidget {
 class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
-      width: 170,
-      height: 257,
-      child: Card(
-        color: AppColor.white,
+    final size = MediaQuery.sizeOf(context);
+    return SizedBox(
+      width: size.width * 0.45,
+      height: size.width * 0.45 * 2,
+      child: DecoratedBox(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
+          color: AppColor.white,
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    topLeft: Radius.circular(20),
-                  ),
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(12),
+                  topLeft: Radius.circular(12),
                 ),
-                child: Image(
-                  image: AssetImage(widget.image),
+                child: Image.asset(
+                  "assets/icons/Image.png",
+                  height: size.width * 0.45,
                   fit: BoxFit.cover,
+                  width: size.width * 0.45,
                 ),
               ),
             ),
-             Expanded(
+            Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -72,7 +78,7 @@ class _ProductCardState extends State<ProductCard> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Text(
-                       widget.about,
+                        widget.about,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
@@ -92,7 +98,7 @@ class _ProductCardState extends State<ProductCard> {
                     Row(
                       children: [
                         Text(
-                         widget.price,
+                          widget.price,
                           style: const TextStyle(
                             color: AppColor.black,
                             fontSize: 16,
@@ -113,7 +119,7 @@ class _ProductCardState extends State<ProductCard> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -14,8 +14,8 @@ class _GridProductState extends State<GridProduct> {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2,
-      crossAxisSpacing: 2,
-      mainAxisSpacing: 2,
+      crossAxisSpacing: 6,
+      mainAxisSpacing: 6,
       childAspectRatio: 1 / 1.6,
       children: List.generate(
         30,
