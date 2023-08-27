@@ -27,48 +27,42 @@ class _SearchPageState extends State<SearchPage> {
       backgroundColor: Colors.white,
       body: ListView(
         children: [
-          Flexible(
-            child: Padding(
-              padding: EdgeInsets.all(screenHeight * 0.025),
-              child: SizedBox(
-                height: screenHeight * 0.08,
-                child: TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.search),
-                    border: const OutlineInputBorder(),
-                    hintText: 'Что вы ищите?',
-                    suffix: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text("Поиск"),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+          Padding(
+            padding: EdgeInsets.all(screenHeight * 0.025),
+            child: SizedBox(
+              height: screenHeight * 0.08,
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.search),
+                  border: const OutlineInputBorder(),
+                  hintText: 'Что вы ищите?',
+                  suffix: ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Поиск"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-                    focusColor: Colors.black,
                   ),
+                  focusColor: Colors.black,
                 ),
               ),
             ),
           ),
-          Flexible(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.03),
-              child: const Text("Популярные поиски"),
-            ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: screenHeight * 0.03),
+            child: const Text("Популярные поиски"),
           ),
           for (int i = 0; i < categories.length; i++)
-            Flexible(
-              child: Column(
-                children: [
-                  GoodCategories(
-                    categoryName: categories[i],
-                  ),
-                ],
-              ),
+            Column(
+              children: [
+                GoodCategories(
+                  categoryName: categories[i],
+                ),
+              ],
             ),
         ],
       ),
