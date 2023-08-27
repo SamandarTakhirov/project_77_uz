@@ -68,7 +68,7 @@ class _MySliverHeaderDelegateState extends State<MySliverHeaderDelegate> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
           child: Text(
             "Популярные категории",
             style: TextStyle(
@@ -81,61 +81,58 @@ class _MySliverHeaderDelegateState extends State<MySliverHeaderDelegate> {
         SizedBox(
           height: 64,
           width: double.infinity,
-          child: ListView.builder(
-            // separatorBuilder: (context, index) {
-            //   return
-            //   icons.last == index ? SizedBox(width: 10) : SizedBox();
-            // },
+          child: ListView.separated(
+            separatorBuilder: (context, index) {
+              return const SizedBox(width: 10);
+            },
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             scrollDirection: Axis.horizontal,
             itemCount: icons.length,
             itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: SizedBox(
-                  height: 64,
-                  width: 200,
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(
-                        color: AppColor.white,
-                        borderRadius: BorderRadius.all(Radius.circular(12))),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        SizedBox(
-                          width: 40,
-                          height: 40,
-                          child: DecoratedBox(
-                            decoration: const BoxDecoration(
-                              color: AppColor.mainColor,
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(8)),
-                            ),
-                            child: Center(
-                              child: Image(
-                                width: 20,
-                                height: 20,
-                                color: AppColor.white,
-                                image: AssetImage(icons[index]),
-                              ),
+              return SizedBox(
+                height: 64,
+                width: 200,
+                child: DecoratedBox(
+                  decoration: const BoxDecoration(
+                      color: AppColor.white,
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: DecoratedBox(
+                          decoration: const BoxDecoration(
+                            color: AppColor.mainColor,
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(8)),
+                          ),
+                          child: Center(
+                            child: Image(
+                              width: 20,
+                              height: 20,
+                              color: AppColor.white,
+                              image: AssetImage(icons[index]),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 120,
-                          child: Text(
-                            names[index],
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF16191D),
-                            ),
+                      ),
+                      SizedBox(
+                        width: 120,
+                        child: Text(
+                          names[index],
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF16191D),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               );

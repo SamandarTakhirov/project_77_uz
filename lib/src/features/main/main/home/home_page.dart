@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_77_uz/src/features/widgets/my_sliverheader_delegate.dart';
 
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
@@ -100,13 +101,10 @@ class _HomePageState extends State<HomePage>
               ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              width: double.infinity,
-              height: 90,
-              child: ColoredBox(
-                color: Colors.red,
-              ),
+          SliverPadding(
+            padding: EdgeInsets.only(bottom: 10),
+            sliver: SliverToBoxAdapter(
+              child: MySliverHeaderDelegate(),
             ),
           )
         ],
