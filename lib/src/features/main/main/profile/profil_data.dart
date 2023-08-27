@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfileDataPage>
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
-              height: 345,
+              height: 370,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -120,6 +120,10 @@ class _ProfilePageState extends State<ProfileDataPage>
                                     width: 220,
                                     child: Text(
                                       ProfileDec.info[i],
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                     ),
                                   ),
                                 ),
