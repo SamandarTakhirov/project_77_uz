@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../common/constants/app_color.dart';
 import '../../../../../common/constants/app_icons.dart';
 import '../../../../widgets/custom_appbar.dart';
-import '../categories.dart';
+import '../../controller_page.dart';
 import 'item_page.dart';
 import 'list_tile_categories.dart';
 
@@ -34,7 +34,7 @@ class _CategoriesItemState extends State<CategoriesItem> {
   void exit() => Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => const Categories(),
+      builder: (context) => const CustomPageController(),
     ),
   );
 

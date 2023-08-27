@@ -74,6 +74,7 @@ class _CategoriesState extends State<Categories>
     super.build(context);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: const CustomAppBar(
           title: AppIcons.logo,

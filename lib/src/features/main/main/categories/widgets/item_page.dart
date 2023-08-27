@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_77_uz/src/features/main/main/controller_page.dart';
 
 import '../../../../../common/constants/app_color.dart';
 import '../../../../../common/constants/app_icons.dart';
 import '../../../../widgets/custom_appbar.dart';
-import '../categories.dart';
 import 'categories_item.dart';
 import 'list_tile_categories.dart';
 import 'open_menu_for_categories.dart';
@@ -44,7 +44,7 @@ class _ItemPageState extends State<ItemPage> {
   void exitOld() => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const Categories(),
+          builder: (context) => const CustomPageController(),
         ),
       );
 

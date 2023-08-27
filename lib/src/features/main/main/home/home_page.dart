@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage>
     super.build(context);
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: const CustomAppBar(
           title: AppIcons.logo,
@@ -88,8 +89,8 @@ class _HomePageState extends State<HomePage>
               mainAxisSpacing: 6,
               childAspectRatio: 1 / 1.6,
               children: List.generate(
-                30,
-                (index) {
+                8,
+                    (index) {
                   return const ProductCard(
                     image: "assets/icons/Image.png",
                     time: "Вчера, 19:20",
@@ -106,7 +107,28 @@ class _HomePageState extends State<HomePage>
             sliver: SliverToBoxAdapter(
               child: MySliverHeaderDelegate(),
             ),
-          )
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            sliver: SliverGrid.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 6,
+              mainAxisSpacing: 6,
+              childAspectRatio: 1 / 1.6,
+              children: List.generate(
+                8,
+                    (index) {
+                  return const ProductCard(
+                    image: "assets/icons/Image.png",
+                    time: "Вчера, 19:20",
+                    about: "Оригинальные кроссовки Nike Air Max 97",
+                    city: "г. Ташкент",
+                    price: "4 820 000",
+                  );
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
