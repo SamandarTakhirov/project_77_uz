@@ -35,6 +35,7 @@ class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMi
     AppIcons.construction,
     AppIcons.bags,
   ];
+
   List<String> names = [
     "Для женщин",
     "Красота",
@@ -62,6 +63,7 @@ class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMi
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -122,9 +124,11 @@ class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMi
                               Radius.circular(15),
                             ),
                           ),
+                          contentPadding: EdgeInsets.only(left: 50, right: 10),
                           tileColor: Colors.white,
                           title: Text(
-                            "       ${names[index]}",
+                            "${names[index]}",
+                            textAlign: TextAlign.start,
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -132,7 +136,7 @@ class _CategoriesState extends State<Categories> with AutomaticKeepAliveClientMi
                             ),
                           ),
                           subtitle: const Text(
-                            "        4 147 объявлений",
+                            "4 147 объявлений",
                             style: TextStyle(
                               fontSize: 14,
                               color: Color(0xFF8E9297),

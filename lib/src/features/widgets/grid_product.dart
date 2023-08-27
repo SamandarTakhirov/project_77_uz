@@ -18,14 +18,16 @@ class _GridProductState extends State<GridProduct> {
       mainAxisSpacing: 6,
       childAspectRatio: 1 / 1.6,
       children: List.generate(
-        30,
-            (index) => const ProductCard(
-          image: "assets/icons/Image.png",
-          time: "Вчера, 19:20",
-          about: "Оригинальные кроссовки Nike Air Max 97",
-          city: "г. Ташкент",
-          price: "4 820 000",
-        ),
+        31,
+        (index) {
+           return  ProductCard(
+            image: "assets/icons/Image.png",
+            time: "Вчера, 19:20",
+            about: "Оригинальные кроссовки Nike Air Max 97",
+            city: "г. Ташкент",
+            price: "4 820 000",
+          );
+        },
       ),
     );
   }

@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage>
         controller: scrollController,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
-            SliverAppBar(
+            const SliverAppBar(
               expandedHeight: 80,
               backgroundColor: AppColor.bkgColor,
               toolbarHeight: 0,
@@ -87,9 +87,9 @@ class _HomePageState extends State<HomePage>
             // ),
           ];
         },
-        body: Expanded(
+        body: const Expanded(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.0,vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
             child: GridProduct(),
           ),
         ),
@@ -101,25 +101,3 @@ class _HomePageState extends State<HomePage>
   bool get wantKeepAlive => true;
 }
 
-class MySliverHeaderDelegate extends SliverPersistentHeaderDelegate {
-  @override
-  Widget build(Object context, double shrinkOffset, bool overlapsContent) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.0),
-        child: GridProduct(),
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => 48;
-
-  @override
-  double get minExtent => 48;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
-  }
-}
