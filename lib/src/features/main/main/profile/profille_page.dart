@@ -18,12 +18,12 @@ class _ProfilePageState extends State<ProfilePage> with AutomaticKeepAliveClient
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const CustomAppBar(
-          title: AppIcons.logo,
-          actionsIcon: AppIcons.bell,
-        ),
+      backgroundColor: Colors.white,
+      title: const CustomAppBar(
+        title: AppIcons.logo,
+        actionsIcon: AppIcons.bell,
       ),
+    ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
