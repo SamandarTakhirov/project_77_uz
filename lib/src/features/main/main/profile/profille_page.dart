@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
+import '../sell_page/sell_page.dart';
 import 'my_ad_page.dart';
 import 'profil_data.dart';
 import 'widget/custom_listtile.dart';
@@ -101,14 +102,14 @@ class _ProfilePageState extends State<ProfilePage>
 }
 
 class MainProfilePageDec {
-  static  List<Widget> routes = [
-    ProfileDataPage(),
-    MyAddPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
+  static List<Widget> routes = [
+    const ProfileDataPage(),
+    const MyAddPage(),
+    const SellPage(),
+    const ProfileDataPage(),
+    const ProfileDataPage(),
+    const ProfileDataPage(),
+    const ProfileDataPage(),
   ];
   static const List<String> icons = [
     "assets/icons/ic_personal_information.png",
