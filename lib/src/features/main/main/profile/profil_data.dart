@@ -1,53 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_77_uz/src/features/main/main/profile/profille_page.dart';
 
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
-import 'profil_data.dart';
-import 'widget/custom_listtile.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ProfileDataPage extends StatefulWidget {
+  const ProfileDataPage({Key? key}) : super(key: key);
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<ProfileDataPage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage>
+class _ProfilePageState extends State<ProfileDataPage>
     with AutomaticKeepAliveClientMixin {
-  List<String> title = [
-    "Персональные данные",
-    "Мои объявления",
-    "Настройки",
-    "Уведомления",
-    "Язык",
-    "Правила пользования",
-    "О нас"
-  ];
-
-  List<Widget> routes = [
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-    ProfileDataPage(),
-  ];
-
-  List<String> icons = [
-    "assets/icons/ic_personal_information.png",
-    "assets/icons/ic_category_four.png",
-    "assets/icons/ic_settings.png",
-    "assets/icons/ic_about.png",
-    "assets/icons/ic_about.png",
-    "assets/icons/ic_about.png",
-    "assets/icons/ic_about.png",
-  ];
-
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -60,6 +29,30 @@ class _ProfilePageState extends State<ProfilePage>
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: [
+            const SizedBox(height: 20),
+            TextButton.icon(
+              icon: const Icon(
+                Icons.arrow_back_sharp,
+                color: Colors.black,
+                size: 32,
+              ),
+              label: const Text(
+                "Персональные данные",
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24,
+                  color: Colors.black,
+                ),
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfilePage(),
+                  ),
+                );
+              },
+            ),
             const SizedBox(height: 20),
             SizedBox(
               width: double.infinity,
@@ -106,17 +99,6 @@ class _ProfilePageState extends State<ProfilePage>
                     ],
                   ),
                 ),
-              ),
-            ),
-            Column(
-              children: List.generate(
-                7,
-                    (index) =>
-                    CustomListTile(
-                      about: title[index],
-                      icon: icons[index],
-                      route:routes[index],
-                    ),
               ),
             ),
           ],
