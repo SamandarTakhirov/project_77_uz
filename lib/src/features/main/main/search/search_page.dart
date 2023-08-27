@@ -33,7 +33,7 @@ class _SearchPageState extends State<SearchPage>
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              expandedHeight: 595,
+              expandedHeight: 600,
               backgroundColor: AppColor.white,
               toolbarHeight: 0,
               flexibleSpace: FlexibleSpaceBar(
