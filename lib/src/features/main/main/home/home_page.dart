@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../common/constants/app_color.dart';
 import '../../../../common/constants/app_icons.dart';
 import '../../../widgets/custom_appbar.dart';
-import '../../../widgets/grid_product.dart';
+import '../../../widgets/product_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -41,60 +41,75 @@ class _HomePageState extends State<HomePage>
         ),
       ),
       backgroundColor: AppColor.bkgColor,
-      body: NestedScrollView(
+      body: CustomScrollView(
         controller: scrollController,
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return [
-            const SliverAppBar(
-              expandedHeight: 80,
-              backgroundColor: AppColor.bkgColor,
-              toolbarHeight: 0,
-              flexibleSpace: FlexibleSpaceBar(
-                background: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Популярное продукты",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 24,
-                              color: AppColor.black,
-                            ),
+        slivers: [
+          const SliverAppBar(
+            expandedHeight: 80,
+            backgroundColor: AppColor.bkgColor,
+            toolbarHeight: 0,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Популярное продукты",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 24,
+                            color: AppColor.black,
                           ),
-                          Text(
-                            "Вы можете найти все категории, которые вам нужны от покупателя",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: AppColor.textGrey,
-                            ),
+                        ),
+                        Text(
+                          "Вы можете найти все категории, которые вам нужны от покупателя",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: AppColor.textGrey,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                collapseMode: CollapseMode.pin,
+                  ),
+                ],
+              ),
+              collapseMode: CollapseMode.pin,
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            sliver: SliverGrid.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 6,
+              mainAxisSpacing: 6,
+              childAspectRatio: 1 / 1.6,
+              children: List.generate(
+                30,
+                (index) {
+                  return const ProductCard(
+                    image: "assets/icons/Image.png",
+                    time: "Вчера, 19:20",
+                    about: "Оригинальные кроссовки Nike Air Max 97",
+                    city: "г. Ташкент",
+                    price: "4 820 000",
+                  );
+                },
               ),
             ),
-          ];
-        },
-        body: NestedScrollView(
-          // controller: scrollController,
-          headerSliverBuilder: (context, innerBoxIsScrolled) {
-            return [
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                sliver: GridProduct(),
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              width: double.infinity,
+              height: 90,
+              child: ColoredBox(
+                color: Colors.red,
               ),
-            ];
-          },
-          body: Text("sad"),
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
