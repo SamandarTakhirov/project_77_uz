@@ -18,7 +18,7 @@ class _SearchPageState extends State<SearchPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const CustomAppBar(
@@ -33,40 +33,24 @@ class _SearchPageState extends State<SearchPage>
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              expandedHeight: screenHeight*0.8,
+              expandedHeight: 595,
               backgroundColor: AppColor.white,
               toolbarHeight: 0,
               flexibleSpace: FlexibleSpaceBar(
                 background: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(screenHeight * 0.025),
+                      padding: EdgeInsets.all(screen.height * 0.025),
                       child: SizedBox(
-                        height: screenHeight * 0.08,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.search),
-                            border: const OutlineInputBorder(),
-                            hintText: 'Что вы ищите?',
-                            suffix: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text("Поиск"),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                            ),
-                            focusColor: Colors.black,
-                          ),
-                        ),
+                        height: screen.height * 0.08,
+                        width: double.infinity,
+                        child: Text(""),
                       ),
                     ),
                     Padding(
                       padding:
-                          EdgeInsets.symmetric(horizontal: screenHeight * 0.03),
+                          EdgeInsets.symmetric(horizontal: screen.height * 0.03),
                       child: const Text("Популярные поиски"),
                     ),
                     for (int i = 0; i < categories.length; i++)
